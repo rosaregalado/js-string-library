@@ -30,10 +30,11 @@ console.log(capitalizeWords("hello world"))
 // removes all extra spaces in a string
 function removeExtraSpaces(str) {
   const removeWhiteSpace = str.trim();
-  const splitStr = str.split(' ');
-  return splitStr.join('')
+  const splitStr = removeWhiteSpace.split(' ');
+  const filter = splitStr.filter((word) => word !== '');
+  return filter.join('')
 }
-console.log("  Hello   World! ")
+console.log(removeExtraSpaces("  Hello   World! "))
 
 
 // Removes extra spaces and replaces spaces with the hyphen "-", and makes all characters lowercase
@@ -116,7 +117,7 @@ function isEmpty(str) {
   const whiteSpaces = ['\n', '\r', '\t']
   // loop over remaining char
   for (let i = 0; i < str.length; i++) {
-    if (str[i] !== whiteSpaces) {
+    if (whiteSpaces.includes(str[i])) {
       return false
     }
     return true
